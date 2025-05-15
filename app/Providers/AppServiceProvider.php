@@ -21,5 +21,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('delete-operator', function (User  $user) {
             return $user->hasRole('Admin');
         });
+
+            if (env('FORCE_HTTPS', false)) {
+        \URL::forceScheme('https');
     }
+    }
+
 }
